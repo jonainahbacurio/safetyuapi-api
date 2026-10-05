@@ -1,0 +1,15 @@
+### Health
+GET http://127.0.0.1:8000/health
+
+### Create emergency
+POST http://127.0.0.1:8000/api/emergencies
+Content-Type: application/json
+
+{
+  "category": "fire",
+  "location": "Computer Laboratory 1",
+  "description": "Smoke detected in the laboratory"
+}
+
+### List emergencies
+GET http://127.0.0.1:8000/api/emergencies

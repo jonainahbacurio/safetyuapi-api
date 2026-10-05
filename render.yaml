@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: safetyu-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: safetyu-db
+          property: connectionString
+      - key: CORS_ORIGINS
+        value: "*"
+
+databases:
+  - name: safetyu-db
